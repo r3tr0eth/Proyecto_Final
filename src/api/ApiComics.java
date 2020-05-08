@@ -1,6 +1,7 @@
 package api;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -46,7 +47,7 @@ public class ApiComics extends HttpServlet {
 		
 		String jsonString = JSONStringer.valueToString(Comics);
 		
-		PrintWriter out = response.getWriter();
+		PrintWriter out = new PrintWriter(new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
 		out.print(jsonString);
 		out.flush();
 	}
