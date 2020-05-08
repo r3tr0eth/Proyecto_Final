@@ -8,7 +8,7 @@ function createHTML(){
 
 $.ajax({
     type:'GET',
-    url: 'http://localhost:8080/Komikilandia/ApiComics',
+    url: 'http://localhost:8080/KomikilandiaV2/ApiComics',
 
 
 

@@ -10,9 +10,7 @@ import modelo.bean.Genero;
 
 public class ModeloGenero extends Conector {
 	
-	/**
-	 * @return
-	 */
+	
 	public ArrayList<Genero> getAll(){
 
 		ArrayList<Genero> generos = new ArrayList<Genero>();
