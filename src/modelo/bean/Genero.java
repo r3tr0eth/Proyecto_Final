@@ -1,27 +1,19 @@
 package modelo.bean;
 
 public class Genero {
-	
+
 	private int id;
 	private String nombre;
-	
-	/**
-	 * 
-	 */
+
 	public Genero() {
 		super();
 	}
 
-	/**
-	 * @param id
-	 * @param nombre
-	 */
 	public Genero(int id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 	}
-
 
 	public int getId() {
 		return id;
@@ -38,15 +30,9 @@ public class Genero {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-	/**
-	 *
-	 */
-	@Override
+
 	public String toString() {
 		return "Genero [id=" + id + ", nombre=" + nombre + "]";
 	}
-
 
 }

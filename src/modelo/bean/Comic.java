@@ -13,23 +13,12 @@ public class Comic {
 	private int num_likes;
 	private Genero genero;
 	
-	/**
-	 * 
-	 */
+	
 	public Comic() {
 		super();
 	}
 
-	/**
-	 * @param id esta es la id de cada comic
-	 * @param nombre
-	 * @param titulo
-	 * @param num
-	 * @param fecha_publicacion
-	 * @param imagen
-	 * @param num_likes
-	 * @param genero
-	 */
+	
 	public Comic(int id, String nombre, String titulo, int num, Date fecha_publicacion, String imagen, int num_likes,
 			Genero genero) {
 		super();
@@ -108,9 +97,6 @@ public class Comic {
 		this.genero = genero;
 	}
 	
-	/**
-	 *
-	 */
 	@Override
 	public String toString() {
 		return "Comics [id=" + id + ", nombre=" + nombre + ", titulo=" + titulo + ", num=" + num
