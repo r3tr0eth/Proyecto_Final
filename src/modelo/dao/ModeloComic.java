@@ -61,7 +61,7 @@ public class ModeloComic extends Conector {
 
 		try {
 
-			PreparedStatement pst = super.conexion.prepareStatement("select * from comics where id="+id);
+			PreparedStatement pst = super.conexion.prepareStatement("select * from comics where id=7");
 
 			ResultSet rs = pst.executeQuery();
 			
