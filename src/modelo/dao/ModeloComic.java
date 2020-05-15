@@ -61,8 +61,8 @@ public class ModeloComic extends Conector {
 
 		try {
 
-			PreparedStatement pst = super.conexion.prepareStatement("select * from comics where id=7");
-
+			PreparedStatement pst = super.conexion.prepareStatement("select * from comics where id=?");
+			pst.setInt(1,id);
 			ResultSet rs = pst.executeQuery();
 			
 			
@@ -98,5 +98,23 @@ public class ModeloComic extends Conector {
 		return comic;
 
 	}
-
+    public void updateLike(Comic comic) throws SQLException  {
+		
+		int id = comic.getId();
+			
+		PreparedStatement pstUpdate = super.conexion.prepareStatement("update comics set num_likes=num_likes + 1 where id=?");
+		pstUpdate.setInt(1,id);
+		pstUpdate.executeUpdate();
+		
+	}
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		try {
+			 PreparedStatement pstDelete = conexion.prepareStatement("DELETE FROM `comics` WHERE `id` = ?");
+			 pstDelete.setInt(1, id);
+			 pstDelete.execute();
+		}catch (SQLException e) {
+           e.printStackTrace();
+       }
+	}
 }
