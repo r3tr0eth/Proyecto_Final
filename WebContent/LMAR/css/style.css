@@ -1,3 +1,20 @@
-.container{
-    background-color: aqua;
-}
+  h1{
+      text-align: center;
+      margin-top: 15px;
+      color: black;
+      box-shadow: white;
+
+  }
+  body{
+    background-image: url("/img/com.jpg");
+    background-position: center;
+    background-size: auto;
+  }
+  .card{
+    margin: 15px;
+  }
+  a.mas{
+    font-size: large;
+    text-align: center;
+  }
+  

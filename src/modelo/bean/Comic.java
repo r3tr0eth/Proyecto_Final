@@ -1,9 +1,13 @@
 package modelo.bean;
 
 import java.util.Date;
-
+/**
+ * 
+ * @author gaizka
+ * @version
+ */
 public class Comic {
-
+	
 	private int id;
 	private String nombre;
 	private	String titulo;
@@ -12,13 +16,34 @@ public class Comic {
 	private String imagen;
 	private int num_likes;
 	private Genero genero;
+	/**
+	 * @param id del comic
+	 * @param nombre del comic
+	 * @param titulo del comic
+	 * @param Numero de la tirada
+	 * @param Fecha de publicacion
+	 * @param Numero de likes
+	 * @param Genero del comic
+	 */
 	
-	
+	/**
+	 * Constructor simple
+	 */
 	public Comic() {
 		super();
 	}
 
-	
+	/**
+	 * Constructor completo 
+	 * @param id
+	 * @param nombre
+	 * @param titulo
+	 * @param num
+	 * @param fecha_publicacion
+	 * @param imagen
+	 * @param num_likes
+	 * @param genero
+	 */
 	public Comic(int id, String nombre, String titulo, int num, Date fecha_publicacion, String imagen, int num_likes,
 			Genero genero) {
 		super();

@@ -1,5 +1,9 @@
 package modelo.bean;
-
+/**
+ * 
+ * @author gaizka
+ * @version
+ */
 public class Genero {
 
 	private int id;

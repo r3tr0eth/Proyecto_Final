@@ -35,6 +35,15 @@ public class ApiUpdateLikes extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		
+			}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
 		int id =Integer.parseInt(request.getParameter("id"));
 		Comic comic = new Comic();
         comic.setId(id);
@@ -49,15 +58,6 @@ public class ApiUpdateLikes extends HttpServlet {
         response.setContentType("application/json");
         request.setCharacterEncoding("UTF-8");
         response.setStatus(HttpServletResponse.SC_OK);
-			}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
-		
         
 			}
 

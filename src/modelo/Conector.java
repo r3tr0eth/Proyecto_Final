@@ -4,13 +4,15 @@ package modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/**
+ * Aqui tenemos la conexion de la base de datos.
+ * @author gaizka
+ *
+ */
 public class Conector {
 	
 	protected Connection conexion;
-
-	/**
-	 */
+	
 	protected Conector() {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");

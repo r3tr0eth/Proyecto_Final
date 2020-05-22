@@ -7,10 +7,17 @@ import java.util.ArrayList;
 
 import modelo.Conector;
 import modelo.bean.Genero;
-
+/**
+ * 
+ * @author gaizka
+ * @version
+ */
 public class ModeloGenero extends Conector {
 	
-	
+	/**
+	 * Este metodo nos devuelve todos los generos
+	 * @return generos
+	 */
 	public ArrayList<Genero> getAll(){
 
 		ArrayList<Genero> generos = new ArrayList<Genero>();
@@ -42,7 +49,11 @@ public class ModeloGenero extends Conector {
 		return generos;
 
 	}
-	
+	/**
+	 * Este metodo nos devulve un genero a traves de un ID	
+	 * @param id
+	 * @return genero
+	 */
 	public Genero get(int id){
 
 		Genero genero = new Genero();

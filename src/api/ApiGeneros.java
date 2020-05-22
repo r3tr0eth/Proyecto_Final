@@ -3,29 +3,32 @@ package api;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
+import org.json.JSONStringer;
+
 import modelo.bean.Comic;
+import modelo.bean.Genero;
 import modelo.dao.ModeloComic;
-
-
+import modelo.dao.ModeloGenero;
 
 /**
- * Servlet implementation class ApiComics
+ * Servlet implementation class ApiGeneros
  */
-@WebServlet("/ApiComic")
-public class ApiComic extends HttpServlet {
+@WebServlet("/ApiGeneros")
+public class ApiGeneros extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ApiComic() {
+    public ApiGeneros() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,27 +37,19 @@ public class ApiComic extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-		int id = Integer.parseInt(request.getParameter("id"));
-		ModeloComic modeloComic=new ModeloComic();
-		Comic comics=modeloComic.select_id(id);		
+		// TODO Auto-generated method stub
+		ModeloGenero generos = new ModeloGenero();
+		ArrayList<Genero> Generos = generos.getAll();
 		
-				
-		JSONObject jsonObject = new JSONObject(comics);
-		String jsonString = jsonObject.toString();
-		
-		
-		response.setHeader("Access-Control-Allow-Origin", "*"); 
-		response.setContentType("application/json");
-        response.setStatus(HttpServletResponse.SC_OK);
-        request.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		out.print(jsonString);
-		out.flush();
-
 	
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setContentType("application/json");
 		
+		String jsonString = JSONStringer.valueToString(Generos);
+		
+		PrintWriter out = new PrintWriter(new OutputStreamWriter(response.getOutputStream(), "UTF8"), true);
+		out.print(jsonString);
+		out.flush();	
 	}
 
 	/**
@@ -62,8 +57,7 @@ public class ApiComic extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		
-			}
+			
+	}
 
 }
