@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 import modelo.Conector;
 import modelo.bean.Comic;
@@ -152,11 +152,12 @@ public class ModeloComic extends Conector {
 		insert.setString(2, comic.getNombre());
 		insert.setString(3, comic.getTitulo());
 		insert.setInt(4,comic.getNum());
-		insert.setDate(5,new java.sql.Date(comic.getFecha_publicacion().getTime()));
+		Date date = new Date(comic.getFecha_publicacion().getTime());
+		insert.setDate(5,date);
 		insert.setString(6, comic.getImagen());
 		insert.setInt(7,comic.getNum_likes());
 		insert.setInt(8,comic.getGenero().getId());
-		
+		insert.execute();
 	}
 	/**
 	 * Este metodo nos un comic actualizado 
@@ -164,16 +165,18 @@ public class ModeloComic extends Conector {
 	 * @throws SQLException
 	 */
 	public void Update(Comic comic) throws SQLException {
-		PreparedStatement update = super.conexion.prepareStatement("CALL SpUpdateComic(?,?,?,?,?,?,?,?)");
+		PreparedStatement update = super.conexion.prepareStatement("update comics set nombre=?, titulo=?, num=?, fecha_publicacion=?, imagen=?, num_likes=?, genero_id=?, where id=?");
 		
 		update.setString(1, comic.getNombre());
 		update.setString(2, comic.getTitulo());
 		update.setInt(3,comic.getNum());
-		update.setDate(4,new java.sql.Date(comic.getFecha_publicacion().getTime()));
+		Date date = new Date(comic.getFecha_publicacion().getTime());
+		update.setDate(4,date);
 		update.setString(5, comic.getImagen());
 		update.setInt(6,comic.getNum_likes());
 		update.setInt(7,comic.getGenero().getId());
 		update.setInt(8,comic.getId());
+		update.execute();
 	}
 	
 	

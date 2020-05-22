@@ -210,7 +210,7 @@ function fillModal(id) {
                               <label >Select Generos:</label>\
                                  <select id='genero_id' value="+ myJsonObject.nombre + '' + myJsonObject.id + "></select>\
                          </div>\
-            <button type='button' class='btn btn-lg btn-danger' onclick='updateComic("+ myJsonObject.id+ ")' >Guardar</button>\
+            <button type='button' class='btn btn-lg btn-danger' onclick='pushData("+ myJsonObject.id+ ")' >Guardar</button>\
             <button type='button' class='btn btn-primary btn-lg' data-dismiss='modal'>Close</button>\
           </form>\
         </div>\
@@ -230,7 +230,44 @@ function fillModal(id) {
     }
   });
 }
+function pushData() {
+  var id = document.getElementById("id").value;
 
+  var nombre = document.getElementById("nombre").value;
+
+  var titulo = document.getElementById("titulo").value;
+
+  var num = document.getElementById("num").value;
+
+  var fecha_publicacion = document.getElementById("fecha_publicacion").value;
+
+  var imagen = document.getElementById("imagen").value;
+
+  var num_likes = document.getElementById("num_likes").value;
+
+  var genero_id = document.getElementById("genero_id").value;
+
+  var comic = {"id":id,"nombre":nombre,"titulo":titulo,"num":num,"fecha_publicacion":fecha_publicacion,"imagen":imagen,"num_likes":num_likes,"genero_id":genero_id};
+
+
+  console.log(JSON.stringify(comic));
+  
+    $.ajax({
+      url : 'http://localhost:8080/KomikilandiaV2/ApiUpdateComic',
+      type:'POST',
+      data:{'comic': JSON.stringify(comic)},
+      datetype:'json',
+      success: function (response) {
+        alert("Todo correcto");
+      },
+      error: function (xhr) {
+        alert("An AJAX error occured: " + xhr.status + " "
+        + xhr.statusText);
+      }
+    })
+  
+  
+}
 function updateComic(id) {
   var result = confirm("¿Los datos se van a borrar, estas seguro?");
   if (result == true) {

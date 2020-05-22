@@ -1,6 +1,8 @@
 package api;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -39,6 +41,15 @@ public class ApiUpdateComic extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+	}
+			
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		String jsonComic=request.getParameter("comic");
 		
@@ -49,7 +60,6 @@ public class ApiUpdateComic extends HttpServlet {
 		comic.setNombre(jsonObject.getString("nombre"));
 		comic.setTitulo(jsonObject.getString("titulo"));
 
-		
 		Date fecha_publi=null;
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -75,20 +85,15 @@ public class ApiUpdateComic extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-		
 		try {
 			ModelComic.getConexion().close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		}
 		
+        response.setHeader("Access-Control-Allow-Origin","*");
+
 	}
 
 }
